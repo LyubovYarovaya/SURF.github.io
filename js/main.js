@@ -10,7 +10,13 @@ $(function(){
       slidesToShow: 4,
       slidesToScroll: 4,
       asNavFor: '.header__slider',
- 
+      responsive: [
+        {
+          breakpoint: 961,
+          settings: "unslick"
+        },
+      ]
+      
     });
     $('.surf-slider').slick({
       slidesToShow: 4,
@@ -18,13 +24,63 @@ $(function(){
       prevArrow: '<img class="slider-arrows slider-arrows__left" src="img/arrow-left.svg" alt="">',
       nextArrow: '<img class="slider-arrows slider-arrows__right" src="img/arrow-right.svg" alt="">',
       asNavFor: '.slider-map',
+      responsive: [
+        {
+          breakpoint: 1210,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 900,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 720,
+          settings: {
+            slidesToShow: 1,
+            centerMode: true,
+          }
+        },
+        {
+          breakpoint: 426,
+          settings: {
+            slidesToShow: 1,
+            centerMode: false,
+          }
+        },
+      ]
     });
     $('.slider-map').slick({
       slidesToShow: 8,
-      slidesToScroll: 8,
+      slidesToScroll: 1,
       arrows: false,
       asNavFor: '.surf-slider',
-      focusOnSelect: true
+      focusOnSelect: true,
+      responsive: [
+        {
+          breakpoint: 1103,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 900,
+          settings: {
+            slidesToShow: 2,
+            centerMode: true,
+          }
+        },
+        {
+          breakpoint: 720,
+          settings: {
+            slidesToShow: 1,
+            centerMode: true,
+          }
+        },
+      ]
     });
     $('.holder__slider, .shop__slider').slick({
       fade: true,
@@ -77,4 +133,9 @@ $(function(){
     $('.surfboard-box__circle').on('click', function(){
       $(this).toggleClass('active')
     });
+    $('.menu-btn').on('click', function(){
+      $('.menu').toggleClass('active');
+    });
+
+    new WOW().init();
 });
